@@ -1,6 +1,6 @@
 const BasicCard = require("./modules/basic.js")
 	, ClozeCard = require("./modules/cloze.js")
-	, CardLog = require("./modules/cardlogger.js");
+	, CardLog = require("./modules/cardlog.js");
 
 // globals
 var question = process.argv[3];
