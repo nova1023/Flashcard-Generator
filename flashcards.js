@@ -29,7 +29,7 @@ function userMain() {
 			}
 			else {
 				console.log("Input error. Please follow this input example:\n" +
-				"node flashcards.js cloze 'full statement' 'cloze section of statement'");
+				"node flashcards.js cloze 'full statement' 'section user wants to cloze/blank out'");
 			}
 			break;
 
