@@ -1,6 +1,6 @@
 const BasicCard = require("./modules/basic.js")
 	, ClozeCard = require("./modules/cloze.js")
-	, CardLogger = require("./modules/cardlogger.js");
+	, CardLog = require("./modules/cardlogger.js");
 
 // globals
 var question = process.argv[3];
@@ -12,8 +12,8 @@ function userMain() {
 		case "basic":
 			// creates a basic card and logs it
 			if (process.argv.length === 5) {
-				CardLogger.LogCard(new BasicCard(question, answer));
-				CardLogger.NewCard(question, answer, "basic");
+				CardLog.LogCard(new BasicCard(question, answer));
+				CardLog.NewCard(question, answer, "basic");
 			}
 			else {
 				console.log("Input error. Please follow this input example:\n" +
@@ -24,8 +24,8 @@ function userMain() {
 		case "cloze":
 			//creates a cloze card and logs it
 			if (process.argv.length === 5) {
-				CardLogger.LogCard(new ClozeCard(question, answer));
-				CardLogger.NewCard(question, answer, "cloze");
+				CardLog.LogCard(new ClozeCard(question, answer));
+				CardLog.NewCard(question, answer, "cloze");
 			}
 			else {
 				console.log("Input error. Please follow this input example:\n" +
@@ -35,7 +35,7 @@ function userMain() {
 
 		case "read":
 			if (process.argv[3] === "basic" || process.argv[3] === "cloze")
-				CardLogger.ReadCards(process.argv[3]);
+				CardLog.ReadCards(process.argv[3]);
 			else
 				console.log("Please input 'basic' or 'cloze' after 'read'");
 			break;

@@ -2,7 +2,7 @@ const fs = require("fs");
 
 //constructors
 
-function CardLogger() {
+function CardLog() {
 	this.LogCard = function(card) {
 
 		//checking for logs folder
@@ -63,4 +63,4 @@ function CardLogger() {
 	};
 }
 
-module.exports = new CardLogger();
+module.exports = new CardLog();
