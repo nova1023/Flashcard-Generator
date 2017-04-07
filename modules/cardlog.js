@@ -3,6 +3,7 @@ const fs = require("fs");
 //constructors
 
 function CardLog() {
+
 	this.LogCard = function(card) {
 
 		//checking for logs folder
@@ -12,17 +13,19 @@ function CardLog() {
 				fs.mkdirSync("./logs");
 			}
 			//append 
-			fs.appendFile("./logs/" + card.cardtype + ".log", function(error){
-				if (error)
+			fs.appendFile("./logs/" + card.cardtype + ".log", noFunc(card), function(error){
+				if (error) {
 					throw error;
+				}
 			});
 		});
 	};
 
 	this.ReadCards = function(cardtype) {
 		fs.readFile("./logs/" + cardtype + ".log", "utf8", function(error, data){
-			if (error)
+			if (error) {
 				throw error;
+			}
 
 			var cardsArray = data.split("\n");
 			//remove last element in array since it's an empty string
@@ -61,6 +64,24 @@ function CardLog() {
 			"Full Text: " + question);
 		}
 	};
-}
+
+	// used to keep functions out when appending to the log files
+	var noFunc = function(card)
+	{
+		var emptyObj = {};
+
+		for (var prop in card)
+		{
+			if (typeof card[prop] !== "function") {
+				emptyObj[prop] = card[prop];
+			}
+		}
+
+		return JSON.stringify(emptyObj) + "\n";
+	};
+
+
+
+};
 
 module.exports = new CardLog();

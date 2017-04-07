@@ -43,8 +43,8 @@ function userMain() {
 		default:
 			console.log("Please use one of these commands: 'basic', 'cloze', or 'read'");
 			break;
-	}
-}
+	};
+};
 
 //calling userMain function
 userMain();
